@@ -3,7 +3,7 @@ import finHub from "../apis/finHub";
 import {BsFillCaretDownFill, BsFillCaretUpFill} from "react-icons/bs";
 
 const StockList = () => {
-    const [stock, setStock] = useState()
+    const [stock, setStock] = useState([])
     const [watchList, setWatchList] = useState(["GOOGL", "MSFT", "AMZN"])
 
     const changeColor = (change) => {
