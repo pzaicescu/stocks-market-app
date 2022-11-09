@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import finHub from "../apis/finHub";
 import {BsFillCaretDownFill, BsFillCaretUpFill} from "react-icons/bs";
+import {WatchListContext} from "../context/watchListContext";
 
 const StockList = () => {
     const [stock, setStock] = useState([])
-    const [watchList, setWatchList] = useState(["GOOGL", "MSFT", "AMZN"])
+
+    const {watchList} = useContext(WatchListContext)
 
     const changeColor = (change) => {
         return change > 0 ? "success" : "danger"
@@ -31,7 +33,6 @@ const StockList = () => {
                         symbol: response.config.params.symbol
                     }
                 })
-                console.log(data)
                 if(isMounted){
                     setStock(data)
                 }
@@ -42,7 +43,7 @@ const StockList = () => {
         fetchData()
 
         return () => (isMounted = false)
-    },[])
+    },[watchList])
 
     return (
         <table className="table hover mt-5">

@@ -7,7 +7,8 @@ const StockOverviewPage = () => {
         <div> This is Stock Overview Page
             <AutoComplete/>
             <StockList/>
-        </div>)
+        </div>
+    )
 };
 
 export default StockOverviewPage;
